@@ -1,20 +1,34 @@
-.card{
+#root {
+  width: 100%;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 16px;
+}
+
+.card {
   border: 1px solid white;
   border-radius: 10px;
   padding: 16px;
   box-shadow: 4px 4px white;
   text-align: center;
   cursor: pointer;
+}
 
-}
-.card > h2{
+.card > h2 {
   font-size: 32px;
-  border-left: 4px solid #A9D3E9;
+  border-left: 6px solid #A9D3E9;
 }
-.card > img{
+
+.card > img {
   border-radius: 10px;
 }
-.tags{
+
+.tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -22,7 +36,8 @@
   max-width: 300px;
   justify-content: center;
 }
-.tag{
+
+.tag {
   background: white;
   color: black;
   font-size: 12px;
