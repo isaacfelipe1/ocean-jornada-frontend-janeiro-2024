@@ -1,23 +1,25 @@
+import { useState } from 'react'
 import './App.css'
 import Card from './components/Card/Card'
+import { useEffect } from 'react'
 
 function App() {
-  const item1 = {
-    name: 'Rick Sanchez',
-    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
-  }
+  const [itens,setItens] = useState([])
 
-  const item2 = {
-    name: 'Morty Smith',
-    image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
+  async function carregarDadosApi(){
+    const apiUrl='https://rickandmortyapi.com/api/character/'
+    const response=await fetch(apiUrl)
+    const body=await response.json()
+    //Extrair o propriedade results do body
+    const results=body.results;
+    setItens(results)
   }
-
-  const item3 = {
-    name: 'Summer Smith',
-    image: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg'
-  }
-  const itens=[item1,item2,item3]
-
+  //Protegemos o carregamento dos dados da api para chamar
+  //Uma única vez
+  useEffect(function (){
+        carregarDadosApi()
+    },[])
+  
   return (
     <>
       <div className="cards">
@@ -26,7 +28,7 @@ function App() {
         <Card item={item2} />
         <Card item={item3} />
         */}
-        {itens.map(item=><Card item={item}/>)}
+        {itens.map((item, i) => <Card item={item} key={i} />)}
        
       </div>
     </>
