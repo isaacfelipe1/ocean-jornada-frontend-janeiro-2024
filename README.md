@@ -1,4 +1,4 @@
 # Meu Projeto
 
-![Texto alternativo](image/inicial.png)
+![Pagina Inicial](image/inicial.png)
 
